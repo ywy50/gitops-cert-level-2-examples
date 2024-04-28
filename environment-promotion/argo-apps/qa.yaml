@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: qa
+spec:
+  destination:
+    name: ''
+    namespace: qa
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ./environment-promotion/envs/qa
+    repoURL: 'https://github.com/ywy50/gitops-cert-level-2-examples'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
