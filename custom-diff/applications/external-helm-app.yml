@@ -29,6 +29,7 @@ spec:
       - /metadata/annotations/creation
 
   ignoreDifferences:
-    - kind: Secret
-    jsonPointers:
-    - /data/my-password
+    - group: ""
+      kind: Secret
+      jsonPointers:
+      - /data/my-password
